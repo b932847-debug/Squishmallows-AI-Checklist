@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Squishmallows AI Checklist</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f1f5f9;
+      --text: #0f172a;
+      --card-bg: rgba(255, 255, 255, 0.6);
+      --border-color: rgba(0, 0, 0, 0.08);
+      --muted-text: #64748b;
+      --accent: #ec4899; /* Light Pink */
+      --accent-hover: #db2777;
+      --ok: #10b981;
+      --arr: #f59e0b;
+      --no: #ef4444;
+      font-family: 'Inter', sans-serif;
+    }
+    html.dark {
+      --bg: #0b1120;
+      --text: #e2e8f0;
+      --card-bg: rgba(23, 37, 62, 0.5); /* Dark Blue */
+      --border-color: rgba(255, 255, 255, 0.1);
+      --muted-text: #94a3b8;
+      --accent: #f472b6;
+      --accent-hover: #ec4899;
+      --ok: #34d399;
+      --arr: #fbbf24;
+      --no: #f87171;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .glass {
+      background-color: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-color);
+    }
+    .btn-accent {
+      background-color: var(--accent);
+      color: white;
+    }
+    .btn-accent:hover {
+      background-color: var(--accent-hover);
+    }
+    .badge-arriving { background: linear-gradient(90deg, rgba(251,191,36,0.2), rgba(251,191,36,0.1)); color: var(--arr); }
+    .badge-there { background: linear-gradient(90deg, rgba(52,211,153,0.2), rgba(52,211,153,0.1)); color: var(--ok); }
+    .badge-notthere { background: linear-gradient(90deg, rgba(248,113,113,0.2), rgba(248,113,113,0.1)); color: var(--no); }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0"
+  }
+}
+</script>
+</head>
+<body class="antialiased">
+  <div id="root"></div>
+  <script>
+    // Handles light/dark mode based on system preference
+    const matcher = window.matchMedia('(prefers-color-scheme: dark)');
+    function toggleDarkMode(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+    toggleDarkMode(matcher.matches);
+    matcher.addEventListener('change', (e) => toggleDarkMode(e.matches));
+  </script>
+</body>
+</html>

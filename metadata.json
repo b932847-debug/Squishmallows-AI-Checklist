@@ -1,0 +1,7 @@
+{
+  "name": "Squishmallows AI Checklist",
+  "description": "An automated checklist for Squishmallows collectors. It fetches the master list from the official Fandom wiki, auto-identifies characters, and uses AI-powered camera recognition to help you find and track your collection.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
